@@ -145,6 +145,21 @@
     <svg ...>
         ...
     </svg>
+<script>
+window.addEventListener("message", function(event) {
+    const { goldColor, greenColor } = event.data;
+
+    let svgContent = document.querySelector("svg");
+
+    if (svgContent) {
+        let pathsGold = svgContent.querySelectorAll('[fill="gold"]');
+        let pathsGreen = svgContent.querySelectorAll('[fill="green"]');
+
+        pathsGold.forEach(path => path.setAttribute("fill", goldColor));
+        pathsGreen.forEach(path => path.setAttribute("fill", greenColor));
+    }
+}, false);
+</script>
 </body>
 </html>
 
